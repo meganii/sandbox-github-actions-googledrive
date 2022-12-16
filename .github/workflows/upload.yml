@@ -17,10 +17,18 @@ jobs:
     # actions/checkout MUST come before auth
     - uses: 'actions/checkout@v3'
 
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10.4'
+        cache: 'pip' # caching pip dependencies
+    - run: pip install -r requirements.txt
+
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v1'
       with:
         workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.SERVICE_ACCOUNT }}
-    # ... further steps are automatically authenticated
+
+    - name: Run script
+      run: python3 list.py
