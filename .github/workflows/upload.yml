@@ -32,4 +32,4 @@ jobs:
         service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
     - name: Run script
-      run: python3 list.py
+      run: python3 upload.py
