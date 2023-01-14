@@ -16,7 +16,11 @@ jobs:
     steps:
     # actions/checkout MUST come before auth
     - uses: 'actions/checkout@v3'
-
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt -y install poppler-utils
+        
     - uses: actions/setup-python@v4
       with:
         python-version: '3.10.4'
@@ -34,5 +38,5 @@ jobs:
     - name: Run script
       run: python3 download.py
 
-    - name: View file
-      run: cat test-notes.pdf
+    - name: Convert pdf
+      run: python3 convert.py

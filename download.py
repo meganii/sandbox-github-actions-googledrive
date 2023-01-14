@@ -26,7 +26,7 @@ def download_file(real_file_id):
 
         # pylint: disable=maybe-no-member
         request = service.files().get_media(fileId=file_id)
-        file = io.BytesIO()
+        file = io.FileIO('note.pdf', 'w')
         downloader = MediaIoBaseDownload(file, request)
         done = False
         while done is False:
