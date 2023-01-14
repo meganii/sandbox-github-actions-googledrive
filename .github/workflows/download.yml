@@ -33,3 +33,6 @@ jobs:
 
     - name: Run script
       run: python3 download.py
+
+    - name: View file
+      run: cat test-notes.pdf
