@@ -37,8 +37,5 @@ def download_file(real_file_id):
         print(F'An error occurred: {error}')
         file = None
 
-    return file.getvalue()
-
-
 if __name__ == '__main__':
     download_file(real_file_id='1Y253Emh0Wr7PyBABaKPKEXbC4G3Pw3AU')
